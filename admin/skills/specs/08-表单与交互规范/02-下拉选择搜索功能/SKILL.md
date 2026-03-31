@@ -1,0 +1,40 @@
+---
+name: jjb-form-select-search
+description: 定义 JJB 项目下拉选择与级联选择搜索功能规范。在使用 Select、Cascader 或 showSearch 时使用。
+---
+
+# 表单与交互规范
+
+## 表单组件
+
+- **下拉选择与级联选择搜索功能**：
+
+  - **强制要求**：除提示语明确要求不做搜索的情况下，所有级联选择（`Cascader`）和普通下拉选择（`Select`）**必须**支持搜索功能
+
+  - **实现方式**：
+    - `Select` 组件：添加 `showSearch` 属性
+    - `Cascader` 组件：添加 `showSearch` 属性
+
+  - **使用示例**：
+    ```javascript
+    // ✅ 正确：Select 支持搜索
+    <Select
+      showSearch
+      placeholder="请选择"
+      allowClear
+      filterOption={(input, option) =>
+        (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
+      }
+    >
+      <Option value="1">选项1</Option>
+      <Option value="2">选项2</Option>
+    </Select>
+
+    // ✅ 正确：Cascader 支持搜索
+    <Cascader
+      showSearch
+      placeholder="请选择"
+      allowClear
+      options={options}
+    />
+    ```

@@ -1,0 +1,8 @@
+---
+name: jjb-modal-static-method
+description: 定义 JJB 项目弹窗静态方法使用规范。在使用 context.modal、Modal.confirm 或 InjectContext 时使用。禁止直接使用 antd Modal 静态方法。
+---
+
+# 弹窗（Modal）规范
+
+- **静态方法使用规范**：禁止直接使用 `antd/Modal` 的静态方法（如 `Modal.confirm`、`Modal.info` 等），必须通过 `InjectContext` 的 `context.modal` 使用。详细规范请参考 [`InjectContext使用规范`](../../03-项目页面结构/02-InjectContext使用规范/SKILL.md)。

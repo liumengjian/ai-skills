@@ -1,0 +1,32 @@
+---
+name: jjb-component-dev
+description: 定义 JJB 项目组件开发规范。在新增组件、使用函数式组件或 Hooks 开发时使用。
+---
+
+# 项目页面结构
+
+## 组件开发规范
+
+- **新增组件推荐使用 Hooks 组件**：
+
+  - **推荐方式**：优先使用函数式组件 + Hooks 的方式开发新组件
+
+  - **优势**：代码更简洁、逻辑更清晰、易于测试和维护
+
+  - **示例**：
+    ```javascript
+    // ✅ 推荐：使用 Hooks 组件
+    import React, { useState, useEffect } from 'react';
+
+    function UserList() {
+      const [data, setData] = useState([]);
+      
+      useEffect(() => {
+        // 数据获取逻辑
+      }, []);
+      
+      return <div>用户列表</div>;
+    }
+
+    export default UserList;
+    ```

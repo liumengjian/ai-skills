@@ -1,0 +1,51 @@
+{
+    "mcpServers": {
+        "zentao-bug-fix": {
+            "command": "npx",
+            "args": ["-y", "@cqsjjb/zentao-bug-fix"],
+            "env": {
+                "ZENTAO_COOKIE": "lang=zh-cn; device=desktop; theme=default; keepLogin=on; za=jxw; zp=61fb54840496cc49065172c2b38c3aa2c2de6859; preBranch=0; preProductID=81; bugModule=0; qaBugOrder=id_desc; lastProduct=82; selfClose=1; windowHeight=953; windowWidth=978; zentaosid=gh7dq8ukeqtdop3uaa3f1ubf93"
+            }
+        },
+        "meter-sphere": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@cqsjjb/meter-sphere-mcp-server"
+            ],
+            "env": {
+                "PLATFORM_PROJECT": "958396182437888",
+                "PLATFORM_ORGANIZATION": "100001",
+                "PLATFORM_MODULE_IDS": "[693465419956224]",
+                "PLATFORM_X_AUTH_TOKEN": "82ad2192-5160-47c9-8047-61997acbc83f",
+                "PLATFORM_CSRF_TOKEN": "JxSklAF+92FPavNzl6AoT/LSVCBwffCWIa+/1zrys/FFakvLflaSh56hPFGuRwlvKHOuGySLxAS6rBlPiIftqo6WtQ4RbPlokGOxzc5gSFo="
+            },
+            "description": "自动化冒烟测试平台 MCP 工具"
+        },
+        "chrome-devtools": {
+            "command": "cmd",
+            "args": [
+                "/c",
+                "npx",
+                "-y",
+                "chrome-devtools-mcp@latest",
+                "--executablePath=C:/Program Files (x86)/Google/Chrome/Application/chrome.exe"
+            ]
+        },
+        "Framelink Figma MCP": {
+            "command": "cmd",
+            "args": [
+                "/c",
+                "npx",
+                "-y",
+                "figma-developer-mcp",
+                "--stdio"
+            ]
+        },
+        "apifox": {
+            "command": "cmd /c npx -y apifox-mcp-server@latest --site-id=5491737",
+            "args": [],
+            "env": {}
+        }
+    }
+}

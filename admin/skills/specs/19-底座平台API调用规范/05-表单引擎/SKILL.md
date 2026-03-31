@@ -1,0 +1,78 @@
+---
+name: jjb-base-form-engine
+description: 定义 JJB 底座 openFormilyDesign、openFormilyDesignNew 表单引擎 API。在打开表单设计器、监听关闭事件时查阅。
+---
+
+# 底座平台API调用规范
+
+## 表单引擎
+
+## base.plugin.openFormilyDesign
+
+打开表单引擎（旧版）。
+
+**函数签名**：
+```typescript
+declare function openFormilyDesign(designCode?: string): void;
+```
+
+**参数说明**：
+- `designCode`：表单设计 Code（可选）
+  - 如果为空，则认为是新增表单
+  - 如果不为空，则认为是修改表单
+
+**返回值**：
+- `void`
+
+**监听表单引擎关闭**：
+```javascript
+if (typeof window.__IN_BASE__ !== 'undefined') {
+  // 打开表单引擎
+  base.plugin.openFormilyDesign('design-code-123');
+  
+  // 监听表单引擎关闭事件
+  window.addEventListener('message', (e) => {
+    const { data, type } = e.data;
+    if (type === 'EVENT_FORMILY_DESIGN_EXIT') {
+      // 表单引擎返回数据
+      console.log('表单设计数据:', data);
+      // 处理表单设计数据
+    }
+  });
+}
+```
+
+## base.plugin.openFormilyDesignNew
+
+打开新版表单引擎。
+
+**函数签名**：
+```typescript
+declare function openFormilyDesignNew(designCode?: string): void;
+```
+
+**参数说明**：
+- `designCode`：表单设计 Code（可选）
+  - 如果为空，则认为是新增表单
+  - 如果不为空，则认为是修改表单
+
+**返回值**：
+- `void`
+
+**监听表单引擎关闭**：
+```javascript
+if (typeof window.__IN_BASE__ !== 'undefined') {
+  // 打开新版表单引擎
+  base.plugin.openFormilyDesignNew('design-code-123');
+  
+  // 监听表单引擎关闭事件
+  window.addEventListener('message', (e) => {
+    const { data, type } = e.data;
+    if (type === 'EVENT_FORMILY_DESIGN_EXIT_NEW') {
+      // 表单引擎返回数据
+      console.log('表单设计数据:', data);
+      // 处理表单设计数据
+    }
+  });
+}
+```

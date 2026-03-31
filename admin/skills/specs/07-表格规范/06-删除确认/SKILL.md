@@ -1,0 +1,39 @@
+---
+name: jjb-table-delete-confirm
+description: 定义 JJB 项目删除确认规范。在使用 context.modal.confirm、二次确认删除或 InjectContext 时使用。禁止使用 Modal.confirm 静态方法。
+---
+
+# 表格（Table）规范
+
+## 删除确认
+
+- 所有删除操作 **必须** 使用 `InjectContext` 中的 `context.modal.confirm` 进行二次确认
+
+- **规范依据**：详细使用规范请参考 [`InjectContext使用规范`](../../03-项目页面结构/02-InjectContext使用规范/SKILL.md)
+
+- **使用要点**：
+  - 禁止直接使用 `antd/Modal.confirm` 静态方法
+  - 必须通过 `useContext(InjectContext)` 获取 `context` 对象后使用 `context.modal.confirm`
+  - 允许使用 `<Modal>` 组件标签形式（非静态方法）
+
+- **使用示例**：
+  ```javascript
+  import { useContext } from 'react';
+  import { InjectContext } from '~/enumerate/context';
+
+  function UserList({ user, deleteUserAction }) {
+    const context = useContext(InjectContext);
+
+    const handleDelete = (record) => {
+      // ✅ 正确：使用 context.modal.confirm（详细规范参考 [`InjectContext使用规范`](../../03-项目页面结构/02-InjectContext使用规范/SKILL.md)）
+      context.modal.confirm({
+        title: '确认删除',
+        content: '确定要删除这条记录吗？',
+        onOk: async () => {
+          await deleteUserAction({ id: record.id });
+          context.message.success('删除成功！');
+        },
+      });
+    };
+  }
+  ```

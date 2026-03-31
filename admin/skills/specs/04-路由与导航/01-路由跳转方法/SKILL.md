@@ -1,0 +1,47 @@
+---
+name: jjb-route-navigation
+description: 定义 JJB 项目路由跳转方法规范。在使用 history.push、路由参数拼接或页面导航时使用。禁止使用 state 传值，仅路由页面组件可获取 history。
+---
+
+# 路由与导航
+
+## 路由跳转方法
+
+- **跳转方法**：在应用中使用 `history.push()` 方法实现路由跳转
+
+- **重要约束**：`history.push()` 方法**仅会在路由页面组件中自动注入到 `props`**
+
+  - 适用范围：仅限 `src/pages/` 目录下的页面组件
+
+  - 使用示例：
+
+    ```javascript
+    // 在 pages/Container/UserList/index.jsx 中
+    function UserList(props) {
+      const handleNavigate = () => {
+        props.history.push('/user/detail/123');
+      };
+      // ...
+    }
+    ```
+
+  - 路由参数拼接：
+
+    ```javascript
+    // 使用查询参数方式传递参数
+    function UserList(props) {
+      const handleNavigate = () => {
+        props.history.push(`/user/detail?id=123`);
+      };
+      // ...
+    }
+    ```
+
+  - 禁止行为：禁止使用 `state` 传值
+
+    ```javascript
+    // ❌ 禁止使用以下方式
+    props.history.push({ pathname: '/user/detail', state: { id: 123 } });
+    ```
+
+  - 禁止行为：禁止在非路由页面组件（如 `src/components/` 中的组件）中直接使用 `history.push()`，应通过 `props` 传递或使用其他导航方式

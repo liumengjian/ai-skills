@@ -1,0 +1,42 @@
+---
+name: jjb-cmd-commands
+description: 定义 jjb-cmd 命令列表。在使用 jjb-cmd help、v、opti 时查阅。
+---
+
+# jjb-cmd 命令行工具使用指南
+
+## 命令列表
+
+### 查看帮助
+
+```bash
+jjb-cmd help
+```
+
+查看 jjb-cmd 命令的帮助信息，显示所有可用命令及其说明。
+
+### 查看版本
+
+```bash
+jjb-cmd v
+```
+
+查看当前 jjb-cmd 的版本号。
+
+### 代码优化
+
+```bash
+jjb-cmd opti
+```
+
+**说明**：自动格式化代码，进入项目目录执行此命令。
+
+**支持的文件类型**：
+- `.js` 文件
+- `.jsx` 文件
+- `.mjs` 文件
+- `.ejs` 文件
+- `.less` 文件
+- `.css` 文件
+
+**注意**：此命令仅支持上述文件类型，其他文件类型不会被格式化。

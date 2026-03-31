@@ -1,0 +1,152 @@
+---
+name: jjb-app-serve-build
+description: 定义 JJB 应用启动与编译规范。在使用 npm run serve/build、配置环境、API_HOST 或清理编译缓存时使用。必须指定环境，production 的 API_HOST 必须为空字符串。
+---
+
+# 应用配置与开发环境
+
+## 应用启动与编译
+
+- **重要说明**：**必须指定环境**，不支持直接使用 `npm run serve` 或 `npm run build`，所有启动和构建命令都需要指定环境参数。
+
+- **开发环境启动**：
+
+  - **命令格式**：`npm run serve:<环境>` 或 `yarn serve:<环境>`
+
+  - **功能说明**：启动开发服务器，支持热更新，代码修改后自动刷新浏览器
+
+  - **访问地址**：根据 `jjb.config.js` 中的 `server` 配置，默认访问地址为 `http://127.0.0.1:8082`
+
+  - **环境配置**：启动时会自动加载 `jjb.config.js` 中 `environment.<环境>` 的对应配置
+
+  - **启动示例**：
+
+    ```bash
+    # 启动开发环境
+    npm run serve:development
+
+    # 启动测试（UAT）环境
+    npm run serve:uat
+    ```
+
+- **生产环境构建**：
+
+  - **命令格式**：`npm run build:<环境>` 或 `yarn build:<环境>`
+
+  - **功能说明**：执行指定环境的构建，生成优化后的静态资源文件
+
+  - **构建产物**：构建完成后会在项目根目录生成 `dist` 文件夹，包含以下内容：
+
+    ```
+    dist/
+    ├── <appIdentifier>/
+    │   └── static/
+    │       ├── css/
+    │       ├── js/
+    │       └── ...
+    └── <appIdentifier>.html
+    ```
+
+  - **构建产物命名**：构建产物目录和文件名基于 `jjb.config.js` 中的 `appIdentifier` 配置生成
+
+  - **环境配置**：构建时会自动加载 `jjb.config.js` 中 `environment.<环境>` 的对应配置
+
+  - **构建示例**：
+
+    ```bash
+    # 构建开发环境
+    npm run build:development
+
+    # 构建测试（UAT）环境
+    npm run build:uat
+
+    # 构建生产环境
+    npm run build:production
+    ```
+
+- **环境映射机制**：
+
+  - **环境参数**：命令中的环境参数会映射到 `jjb.config.js` 中 `environment` 对象的对应配置
+
+  - **环境配置示例**：
+
+    ```javascript
+    // jjb.config.js
+    {
+      environment: {
+        development: {
+          API_HOST: 'http://10.43.250.65'
+        },
+        uat: {
+          API_HOST: 'http://10.43.82.219'
+        },
+        production: {
+          API_HOST: ''  // 必须设置为空字符串
+        }
+      }
+    }
+    ```
+
+  - **配置说明**：执行 `npm run serve:development` 时，会加载 `environment.development` 的配置；执行 `npm run build:uat` 时，会加载 `environment.uat` 的配置
+
+  - **production环境API_HOST配置要求**：
+
+    - **必须设置为空字符串**：`production` 环境的 `API_HOST` 必须配置为空字符串 `''`，不能设置为具体的接口域名
+
+    - **原因说明**：当微应用打包发布到底座平台时，微应用必须与底座处于同一域名下运行，否则会出现 CORS 跨域问题，且无法访问底座提供的其他接口服务
+
+    - **技术原理**：在应用的 `index.html` 模板中，定义了 `window.process.env` 全局变量，其中 `API_HOST` 字段的值通过以下优先级判断逻辑确定：
+
+      1. 优先使用 `sessionStorage.API_HOST`（如果存在）
+      2. 其次使用配置文件中 `environment.<环境>.API_HOST` 的值
+      3. 如果配置值为空字符串或未设置，则自动使用 `window.location.origin` 作为接口域名
+
+    - **配置效果**：
+
+      - **开发环境**（`development`）：配置具体的接口域名（如 `'http://10.43.250.65'`），应用将使用该域名进行接口请求
+
+      - **生产环境**（`production`）：配置为空字符串 `''`，应用将自动使用当前页面的 `window.location.origin`，确保与底座处于同一域名下，避免跨域问题并能够正常访问底座提供的接口服务
+
+- **常用命令总结**：
+
+  | 命令 | 说明 |
+  | :--- | :--- |
+  | `npm run serve:development` | 启动开发环境服务器 |
+  | `npm run serve:uat` | 启动测试（UAT）环境服务器 |
+  | `npm run build:development` | 构建开发环境 |
+  | `npm run build:uat` | 构建测试（UAT）环境 |
+  | `npm run build:production` | 构建生产环境 |
+
+- **编译缓存管理**：
+
+  - **缓存文件位置**：本地开发服务（devServer）运行会生成大量的文件热更新编译缓存包，缓存文件路径为 `node_modules/.cache`
+
+  - **注意事项**：
+
+    1. **缓存清理必要性**：若长期没有删除缓存会导致应用热更新卡顿、文件磁盘占用过大等问题
+
+    2. **依赖更新影响**：若安装了新的依赖或依赖版本升级，没有删除缓存，可能导致仍然使用旧依赖的问题
+
+    3. **删除缓存时机**：**删除缓存前必须暂停 devServer，否则会导致服务异常**
+
+  - **清理方式**：
+
+    ```bash
+    # 1. 先停止开发服务器（Ctrl + C）
+    # 2. 删除缓存目录
+    rm -rf node_modules/.cache
+    # Windows 系统使用：
+    # rmdir /s /q node_modules\.cache
+    ```
+
+- **注意事项**：
+
+  - 启动开发服务器前，确保已安装所有依赖（`npm install` 或 `yarn install`）
+
+  - 构建命令执行前，建议先清理之前的构建产物
+
+  - 不同环境的构建产物会使用对应环境的接口地址配置
+
+  - 构建完成后，可通过 `jjb-cmd push java <环境>` 命令将构建产物推送到后端仓库（详细使用方法请参考 [`20-jjb-cmd`](../../20-jjb-cmd/04-推送微前端包.md)）
+
+  - 定期清理编译缓存，避免热更新卡顿和磁盘占用过大问题

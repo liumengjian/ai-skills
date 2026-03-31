@@ -1,0 +1,12 @@
+---
+name: jjb-gitlab-branch-naming
+description: 定义 JJB GitLab 分支命名规范。在创建或命名分支时查阅。
+---
+
+# GitLab 规范
+
+## 分支命名规范
+
+- **分支命名格式**：`v_<Version>`
+  - 示例：`v_1.0.0`、`v_2.1.3`
+  - 版本号遵循语义化版本规范（主版本号.次版本号.修订号）

@@ -1,0 +1,14 @@
+---
+name: jjb-push-command
+description: 定义 JJB 应用推送命令规范。在使用 jjb-cmd push java 推送前端应用到后端仓库时查阅。
+---
+
+# 构建与部署
+
+## 应用推送
+
+- **推送命令**：使用 `jjb-cmd push java <环境>` 命令将前端应用推送到后端 Java 项目仓库
+
+  - 命令格式：`jjb-cmd push java <环境>`
+
+  - 环境配置：环境参数来源于 `jjb.config.js` 文件中的 `environment` 配置项
