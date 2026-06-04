@@ -1,6 +1,6 @@
 ---
 name: business-components
-description: 富文本、图片上传、文件上传、地图、云组件等通用业务组件。Use when implementing rich text editor, file uploads, map components, or cloud components.
+description: 富文本、图片上传、文件上传、高德地图、云组件等通用业务组件。Use when implementing rich text editor, file uploads, map components, or cloud components.
 ---
 
 # 通用业务组件使用规范
@@ -15,12 +15,13 @@ description: 富文本、图片上传、文件上传、地图、云组件等通�
 | 文件上传组件 | `../specs/10-通用业务组件使用规范/04-文件上传组件/SKILL.md` |
 | 多附件上传 | `../specs/10-通用业务组件使用规范/05-多附件上传/SKILL.md` |
 | 图片裁剪组件 | `../specs/10-通用业务组件使用规范/06-图片裁剪组件/SKILL.md` |
+| 高德地图组件 | `../specs/10-通用业务组件使用规范/07-地图组件/SKILL.md` |
+| 数据脱敏与解密 | `../specs/10-通用业务组件使用规范/08-数据脱敏与解密/SKILL.md` |
 
-## 地图与云组件
+## 云组件
 
 | 规范 | 路径 |
 |-----|------|
-| 地图组件 | `../specs/10-通用业务组件使用规范/07-地图组件/SKILL.md` |
 | 云组件概述与导入 | `../specs/13-云组件使用规范/01-概述与导入/SKILL.md` |
 | 云组件基础用法 | `../specs/13-云组件使用规范/02-基础用法/SKILL.md` |
 | 云组件属性说明 | `../specs/13-云组件使用规范/03-组件属性说明/SKILL.md` |

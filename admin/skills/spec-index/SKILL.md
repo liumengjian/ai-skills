@@ -18,6 +18,8 @@ description: 前端微应用开发规范总索引，快速定位领域 SKILL 与
 | **通用业务组件** | `../business-components/SKILL.md` | 富文本、上传、地图、云组件 |
 | **权限与底座 API** | `../permission-base-api/SKILL.md` | 按钮权限、基座平台 API、Interpolation |
 | **构建与部署** | `../build-deploy/SKILL.md` | jjb-cmd、jjb-common-lib、GitLab、推送部署 |
+| **需求文档 → Markdown** | `../markdownify-mcp/SKILL.md`；`admin/scripts/docx_to_markdown_with_images.py` | Word/PDF 等转 `.md`（配图优先脚本）；转好后由 **`requirements-analysis`** 直接读该 `.md` |
+| **Figma 设计快照** | `../figma-mcp/SKILL.md`；仓库根目录 `.design/` | 本地 `meta.json` + `figma-data.md` 与 `.api` 同期：优先读本地，避免重复 MCP |
 
 ## 快速查找（按类别）
 
@@ -35,10 +37,14 @@ description: 前端微应用开发规范总索引，快速定位领域 SKILL 与
 |-------|------|
 | declareRequest / Connect / 命名空间 | `../specs/11-接口与数据层规范/02-接口定义规范/SKILL.md`、`03-命名空间与视图连接` |
 | PageLayout / SearchForm / TableAction | `../specs/05-页面布局`、`../specs/06-搜索区`、`../specs/07-表格/02-表格操作栏` |
-| ImageUploader / FileUploader / getValueProps | `../specs/10-通用业务组件使用规范/02-图片上传`、`04-文件上传` |
+| ImageUploader / FileUploader / getValueProps / 数据脱敏 / 数据解密 | `../specs/10-通用业务组件使用规范/02-图片上传`、`04-文件上传`、`08-数据脱敏与解密` |
 | Permission / Interpolation | `../specs/16-按钮权限控制规范`、`../specs/17-接口动态文本配置` |
 | 环境变量 / process.env.app / Token | `../specs/14-环境变量与数据访问/` |
+| CategoryTree / 分类树 / 树组件 | `../specs/05-页面布局与通用UI规范/03-分类树组件/SKILL.md` |
+| 故障排查 / 接口返回HTML / 菜单加载失败 / 配置同步 / 本地联调 / Java集成 / 表单引擎调试 | `../specs/02-应用配置与开发环境/12-故障排查/SKILL.md` |
+| ant-prefix / ConfigProvider prefixCls / 勿用 `.ant-*` 写样式 | `../specs/02-应用配置与开发环境/01-应用标识符与路由配置/SKILL.md`、`03-样式配置` |
 | 路由跳转 / 查询参数 / 动态路由 | `../specs/04-路由与导航/`、`../specs/03-项目页面结构/05-路由生成` |
+| 嵌套路由 / `_id` 父级 `index.js` / `props.children` | `../specs/03-项目页面结构/06-动态路由规范/SKILL.md`（「嵌套路由父级」） |
 | InjectContext / 枚举值 | `../specs/03-项目页面结构/02-InjectContext`、`09-枚举值` |
 | getClientInfo / __IN_BASE__ | `../specs/19-底座平台API调用规范/` |
 | parseJSON / tools.router / dayjs | `../specs/21-jjb-common-lib/`、`../specs/01-技术栈/01-技术栈` |

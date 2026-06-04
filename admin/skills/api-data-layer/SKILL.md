@@ -19,7 +19,7 @@ description: 接口定义、declareRequest、Connect 装饰器、字典数据、
 | 规范 | 路径 |
 |-----|------|
 | 字典数据获取规范 | `../specs/11-接口与数据层规范/05-字典数据获取规范/SKILL.md` |
-| 禁止 useEffect 监听接口 action | `../specs/11-接口与数据层规范/06-禁止useEffect监听接口action/SKILL.md` |
+| 禁止 Hook 依赖监听接口 action | `../specs/11-接口与数据层规范/06-禁止Hook依赖监听接口action/SKILL.md` |
 | 单文件上传接口服务 | `../specs/11-接口与数据层规范/07-单文件上传接口服务/SKILL.md` |
 | Loading 状态重置规范 | `../specs/11-接口与数据层规范/08-Loading状态重置规范/SKILL.md` |
 
@@ -28,4 +28,4 @@ description: 接口定义、declareRequest、Connect 装饰器、字典数据、
 - **declareRequest** / **Action 命名** / **Action 命名禁止关键字**
 - **Connect 装饰器** / **命名空间** / **命名空间映射**
 - **三层架构** / **success 判断** / **Action 返回值**
-- **resetModelState** / **confirmLoading 重置**
+- **resetModelState 重置模型状态** / **confirmLoading 重置** / **Loading 重置** / **dispatch 调用Action** / **getModalState 获取模型状态** / **dispatchModelAction 调用模型Action**

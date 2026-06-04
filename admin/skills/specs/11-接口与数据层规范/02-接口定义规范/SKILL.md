@@ -7,7 +7,7 @@ description: 定义 JJB 接口定义规范。在使用 declareRequest、Action �
 
 ## 接口定义规范 (declareRequest)
 
-所有接口必须通过 `@cqsjjb/jjb-dva-runtime/declareRequest` 进行声明。该方法通过字符串 DSL 实现请求配置与数据处理。
+所有接口必须通过 `declareRequest` 进行声明。该方法通过字符串 DSL 实现请求配置与数据处理。
 
 必须严格参考对应 MD 文档或 d.ts 文件！
 
@@ -32,6 +32,8 @@ declareRequest(
 ## 定义示例
 
 ```javascript
+import { declareRequest } from '@cqsjjb/jjb-dva-runtime';
+
 // 示例1：获取试卷列表（完整参数）
 export const getExamResDataAction = declareRequest(
   'examResDataLoading', // 参数1：Loading 状态字段名
@@ -71,6 +73,8 @@ export const createUserAction = declareRequest(
 ### ❌ 错误示例
 
 ```javascript
+import { declareRequest } from '@cqsjjb/jjb-dva-runtime';
+
 // ❌ 错误：使用了保留关键字
 export const dispatch = declareRequest('Get > /api/user');
 export const resetModelState = declareRequest('Get > /api/user');
@@ -84,6 +88,8 @@ export const action = declareRequest('Get > /api/user');
 ### ✅ 正确示例
 
 ```javascript
+import { declareRequest } from '@cqsjjb/jjb-dva-runtime';
+
 // ✅ 正确：使用符合规范的命名
 export const fetchUserAction = declareRequest('Get > /api/user');
 export const getUserListAction = declareRequest('Get > /api/users');
@@ -208,7 +214,7 @@ function UserModal({ createUserAction, resetModelState, modalOpen }) {
       // ✅ 弹窗关闭时重置 loading 状态
       resetModelState(NS_USER, { confirmLoading: false });
     }
-  }, [modalOpen, resetModelState]);
+  }, [modalOpen]);
 
   // ... 其他代码
 }

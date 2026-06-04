@@ -30,6 +30,7 @@ description: 项目目录结构、路由配置、应用配置与开发环境。U
 | HTML模板配置 | `../specs/02-应用配置与开发环境/09-HTML模板配置/SKILL.md` |
 | HTTP拦截器配置 | `../specs/02-应用配置与开发环境/10-HTTP拦截器配置/SKILL.md` |
 | 构建工具与Webpack配置 | `../specs/02-应用配置与开发环境/11-构建工具与Webpack配置/SKILL.md` |
+| 故障排查 | `../specs/02-应用配置与开发环境/12-故障排查/SKILL.md` |
 
 ## 项目页面结构
 

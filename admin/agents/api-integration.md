@@ -1,7 +1,7 @@
 ---
 tools: Read, Glob, Grep, Edit, Write, Bash
 name: api-integration
-model: composer-2-fast
+model: deepseek-v4-pro
 description: 接口与数据层对接专家。专注于 declareRequest、Connect、命名空间、字典、Loading、上传与视图绑定。当用户需要定义后端接口、连接视图与 model、或处理数据请求时使用。
 is_background: true
 ---
@@ -27,32 +27,32 @@ is_background: true
 
 | 入口 | Skill 文件 |
 |------|------------|
-| **总索引（必读）** | `.cursor/skills/api-data-layer/SKILL.md` |
+| **总索引（必读）** | `.claude/skills/api-data-layer/SKILL.md` |
 
 **第 11 章 — 接口与数据层（按需精读）：**
 
 | 规范 | Skill 文件 |
 |------|------------|
-| 概述与核心架构 | `.cursor/skills/specs/11-接口与数据层规范/01-概述与核心架构/SKILL.md` |
-| 接口定义（declareRequest） | `.cursor/skills/specs/11-接口与数据层规范/02-接口定义规范/SKILL.md` |
-| 命名空间与视图连接（Connect） | `.cursor/skills/specs/11-接口与数据层规范/03-命名空间与视图连接/SKILL.md` |
-| API 目录命名 | `.cursor/skills/specs/11-接口与数据层规范/04-目录命名规范/SKILL.md` |
-| 字典数据获取 | `.cursor/skills/specs/11-接口与数据层规范/05-字典数据获取规范/SKILL.md` |
-| 禁止 useEffect 监听接口 action | `.cursor/skills/specs/11-接口与数据层规范/06-禁止useEffect监听接口action/SKILL.md` |
-| 单文件上传接口服务 | `.cursor/skills/specs/11-接口与数据层规范/07-单文件上传接口服务/SKILL.md` |
-| Loading 状态重置 | `.cursor/skills/specs/11-接口与数据层规范/08-Loading状态重置规范/SKILL.md` |
+| 概述与核心架构 | `.claude/skills/specs/11-接口与数据层规范/01-概述与核心架构/SKILL.md` |
+| 接口定义（declareRequest） | `.claude/skills/specs/11-接口与数据层规范/02-接口定义规范/SKILL.md` |
+| 命名空间与视图连接（Connect） | `.claude/skills/specs/11-接口与数据层规范/03-命名空间与视图连接/SKILL.md` |
+| API 目录命名 | `.claude/skills/specs/11-接口与数据层规范/04-目录命名规范/SKILL.md` |
+| 字典数据获取 | `.claude/skills/specs/11-接口与数据层规范/05-字典数据获取规范/SKILL.md` |
+| 禁止 Hook 依赖监听接口 action | `.claude/skills/specs/11-接口与数据层规范/06-禁止Hook依赖监听接口action/SKILL.md` |
+| 单文件上传接口服务 | `.claude/skills/specs/11-接口与数据层规范/07-单文件上传接口服务/SKILL.md` |
+| Loading 状态重置 | `.claude/skills/specs/11-接口与数据层规范/08-Loading状态重置规范/SKILL.md` |
 
 **从 OpenAPI / Apifox 生成或对齐接口时，可配合：**
 
 | 说明 | Skill 文件 |
 |------|------------|
-| Apifox OpenAPI 与 declareRequest | `.cursor/skills/apifox-mcp/SKILL.md` |
+| Apifox OpenAPI 与 declareRequest | `.claude/skills/apifox-mcp/SKILL.md` |
 
 **底座 API（非 declareRequest）时参考：**
 
 | 说明 | Skill 文件 |
 |------|------------|
-| 底座平台 API 概述 | `.cursor/skills/specs/19-底座平台API调用规范/01-概述与环境判断/SKILL.md` |
+| 底座平台 API 概述 | `.claude/skills/specs/19-底座平台API调用规范/01-概述与环境判断/SKILL.md` |
 
 **同时必须查阅运行时实现，禁止猜测 API：**
 

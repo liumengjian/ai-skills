@@ -11,6 +11,7 @@ description: 前端页面布局与 UI 组件规范。Use when implementing page 
 |-----|------|
 | 页面 Layout | `../specs/05-页面布局与通用UI规范/01-页面Layout/SKILL.md` |
 | 页面右上角操作区 | `../specs/05-页面布局与通用UI规范/02-页面右上角操作区/SKILL.md` |
+| 分类树组件 | `../specs/05-页面布局与通用UI规范/03-分类树组件/SKILL.md` |
 
 ## 搜索区
 

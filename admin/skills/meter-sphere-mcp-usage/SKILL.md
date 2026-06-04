@@ -17,7 +17,7 @@ description: >-
 
 ## MCP 配置
 
-配置位于 `~/.cursor/mcp.json`，meter-sphere 服务示例：
+配置位于 `~/.claude/mcp.json`，meter-sphere 服务示例：
 
 ```json
 {

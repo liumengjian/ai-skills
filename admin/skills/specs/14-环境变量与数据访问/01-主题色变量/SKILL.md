@@ -13,6 +13,8 @@ description: 定义 JJB 主题色变量配置规范。在使用 @colorPrimary、
 
 - **配置来源**：主题色配置来源于根目录 `jjb.config.js` 文件中的 `framework` 属性
 
+- **`ant-prefix`（类名前缀）**：`framework.antd['ant-prefix']` 会注入为 `process.env.app.antd['ant-prefix']`，并在 `Container` 的 `ConfigProvider` 上作为 `prefixCls` 使用。antd 组件 DOM 类名为 **`${ant-prefix}-*`**，不是默认的 `ant-*`。**在 Less/CSS 中覆盖 antd 内部样式时不得使用 `.ant-` 选择器**，详见 [`应用标识符与路由配置`](../../02-应用配置与开发环境/01-应用标识符与路由配置/SKILL.md) 中「Ant Design 类名前缀」。
+
 - **配置结构**：
 
   ```javascript
@@ -20,6 +22,7 @@ description: 定义 JJB 主题色变量配置规范。在使用 @colorPrimary、
   {
     framework: {
       antd: {
+        'ant-prefix': 'app-open-maic', // 示例：常与 appIdentifier 对应为 app-${appIdentifier}
         colorPrimary: '#1890ff'
       }
     }

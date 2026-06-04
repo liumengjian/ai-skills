@@ -16,7 +16,7 @@ description: 使用yarn安装依赖包并设置npmrr源。Use when installing de
 yarn config set registry https://registry.npmmirror.com
 
 # 安装依赖（从npmrr源）
-yarn install
+yarn
 
 # 添加依赖包
 yarn add <package-name>
@@ -46,7 +46,7 @@ yarn add react-dom
 
 ## 使用场景
 
-- 安装项目依赖：`yarn install`
+- 安装项目依赖：`yarn`
 - 添加新依赖：`yarn add <package>`
 - 添加开发依赖：`yarn add <package> -D`
 - 更新依赖：`yarn upgrade`
@@ -56,4 +56,4 @@ yarn add react-dom
 
 - **yarn** / **npmrr** / **npmmirror**
 - **安装依赖** / **添加依赖** / **依赖管理**
-- **yarn add** / **yarn install** / **yarn remove**
+- **yarn add** / **yarn** / **yarn remove**

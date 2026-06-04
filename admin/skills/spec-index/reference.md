@@ -14,9 +14,11 @@
 |-------|------|
 | declareRequest, Connect, 命名空间, Action命名 | `../specs/11-接口与数据层规范/02-接口定义规范/SKILL.md`、`03-命名空间与视图连接` |
 | PageLayout, SearchForm, TableAction | `../specs/05-页面布局`、`../specs/06-搜索区`、`../specs/07-表格/02-表格操作栏` |
-| ImageUploader, FileUploader, getValueProps, getValueFromEvent | `../specs/10-通用业务组件使用规范/` |
+| ImageUploader, FileUploader, getValueProps, getValueFromEvent, 数据脱敏, 数据解密 | `../specs/10-通用业务组件使用规范/` |
 | Permission, Interpolation | `../specs/16-按钮权限`、`../specs/17-接口动态文本` |
 | 环境变量, process.env.app, Token | `../specs/14-环境变量与数据访问/` |
+| ant-prefix, prefixCls, antd 类名非 ant- | `../specs/02-应用配置与开发环境/01-应用标识符与路由配置/SKILL.md`、`03-样式配置` |
+| 故障排查, 接口返回HTML, 菜单加载失败, 配置同步, 本地联调, Java集成, 表单引擎调试 | `../specs/02-应用配置与开发环境/12-故障排查/SKILL.md` |
 | 路由跳转, 查询参数, 动态路由 | `../specs/04-路由与导航/`、`../specs/03-项目页面结构/` |
 | InjectContext, 枚举值 | `../specs/03-项目页面结构/02-InjectContext`、`09-枚举值` |
 | getClientInfo, getTenantInfo, __IN_BASE__ | `../specs/19-底座平台API调用规范/` |
